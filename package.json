@@ -2,6 +2,7 @@
   "name": "github-copilot-meetup-tokyo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://taiga-K.github.io/gh-copilot-tokyo",
   "dependencies": {
     "@types/node": "^16.18.0",
     "@types/react": "^18.2.0",
