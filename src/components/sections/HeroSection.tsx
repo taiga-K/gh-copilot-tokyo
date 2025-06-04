@@ -37,7 +37,12 @@ export const HeroSection = () => (
           </div>
         </div>
         
-        <Button size="lg" variant="default" className="font-bold">
+        <Button 
+          size="lg" 
+          variant="default" 
+          className="font-bold"
+          onClick={() => window.open('https://connpass.com/', '_blank')}
+        >
           参加申込み
         </Button>
       </div>

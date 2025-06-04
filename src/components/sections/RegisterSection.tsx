@@ -14,7 +14,12 @@ export const RegisterSection = () => (
         皆様のご参加をお待ちしています！
       </p>
       
-      <Button size="lg" variant="default" className="font-bold px-12 py-4 text-xl mb-8">
+      <Button 
+        size="lg" 
+        variant="default" 
+        className="font-bold px-12 py-4 text-xl mb-8"
+        onClick={() => window.open('https://connpass.com/', '_blank')}
+      >
         今すぐ参加申込み
       </Button>
       

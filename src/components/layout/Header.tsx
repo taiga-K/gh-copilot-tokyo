@@ -17,7 +17,11 @@ export const Header = () => (
         </div>
         
         
-        <Button variant="outline" className="hidden md:inline-flex">
+        <Button 
+          variant="outline" 
+          className="hidden md:inline-flex"
+          onClick={() => window.open('https://connpass.com/', '_blank')}
+        >
           参加申込み
         </Button>
       </div>
