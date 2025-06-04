@@ -1,0 +1,549 @@
+import React from 'react';
+import { Calendar, MapPin, Users, Clock, ExternalLink, Github, Zap, Code2, Brain } from 'lucide-react';
+import { cva, type VariantProps } from 'class-variance-authority';
+
+// Utility function for merging class names
+const cn = (...classes: string[]) => classes.filter(Boolean).join(' ');
+
+// shadcn/ui Button Component (正式実装)
+const buttonVariants = cva(
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+);
+
+interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    return (
+      <button
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+Button.displayName = "Button";
+
+// shadcn/ui Card Components
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      className
+    )}
+    {...props}
+  />
+));
+Card.displayName = "Card";
+
+const CardHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    {...props}
+  />
+));
+CardHeader.displayName = "CardHeader";
+
+const CardContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+));
+CardContent.displayName = "CardContent";
+
+// shadcn/ui Badge Component
+const badgeVariants = cva(
+  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  {
+    variants: {
+      variant: {
+        default: "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+        secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive: "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+        outline: "text-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+);
+
+interface BadgeProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {}
+
+const Badge = ({ className, variant, ...props }: BadgeProps) => {
+  return (
+    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+  );
+};
+
+// イベントデータ
+const eventData = {
+  title: "GitHub Copilot Tokyo Meetup",
+  date: "2025年7月11日（金）",
+  time: "19:00 - 21:00",
+  venue: "サイボウズ + オンライン",
+  capacity: "TBD",
+  fee: "無料",
+  description: "AIペアプログラミングの最前線を学ぶ、GitHub Copilotユーザーのためのコミュニティイベント",
+  registrationUrl: "#",
+  agenda: [
+    { time: "19:00-19:15", title: "イベント概要・タイムテーブル説明", speaker: "主催者" },
+    { time: "19:15-19:30", title: "LTセッション #1", speaker: "TBD" },
+    { time: "19:30-19:35", title: "休憩・入れ替え", speaker: "" },
+    { time: "19:35-19:50", title: "LTセッション #2", speaker: "TBD" },
+    { time: "19:50-19:55", title: "休憩・入れ替え", speaker: "" },
+    { time: "19:55-20:10", title: "LTセッション #3", speaker: "TBD" },
+    { time: "20:10-20:15", title: "休憩・入れ替え", speaker: "" },
+    { time: "20:15-20:30", title: "LTセッション #4", speaker: "TBD" },
+    { time: "20:30-20:35", title: "休憩・入れ替え", speaker: "" },
+    { time: "20:35-20:50", title: "LTセッション #5", speaker: "TBD" },
+    { time: "20:50-21:00", title: "クロージング・ネットワーキング", speaker: "主催者" }
+  ],
+  speakers: []
+};
+
+// ヘッダーコンポーネント
+const Header = () => (
+  <header className="fixed top-0 w-full z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="flex items-center space-x-2">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
+          <Code2 className="w-5 h-5 text-white" />
+        </div>
+        <span className="font-semibold text-foreground">Copilot Meetup</span>
+      </div>
+      <nav className="hidden md:flex items-center space-x-6">
+        <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
+        <a href="#agenda" className="text-muted-foreground hover:text-foreground transition-colors">Agenda</a>
+        <a href="#venue" className="text-muted-foreground hover:text-foreground transition-colors">Venue</a>
+        <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+          参加申込み
+        </Button>
+      </nav>
+    </div>
+  </header>
+);
+
+// ヒーローセクション
+const HeroSection = () => (
+  <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-blue-900">
+    {/* 背景パターン */}
+    <div className="absolute inset-0 opacity-20">
+      <div 
+        className="w-full h-full bg-repeat" 
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }}
+      ></div>
+    </div>
+    
+    {/* フローティングアイコン */}
+    <div className="absolute inset-0 overflow-hidden">
+      <Github className="absolute top-20 left-10 w-6 h-6 text-blue-400/20 animate-pulse" />
+      <Code2 className="absolute top-40 right-20 w-8 h-8 text-purple-400/20 animate-bounce" />
+      <Brain className="absolute bottom-32 left-20 w-7 h-7 text-green-400/20 animate-pulse" />
+      <Zap className="absolute bottom-20 right-10 w-6 h-6 text-yellow-400/20 animate-bounce" />
+    </div>
+
+    <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="max-w-4xl mx-auto">
+        <Badge className="mb-6 bg-blue-600/20 text-blue-300 border-blue-500/30" variant="outline">
+          <Calendar className="w-4 h-4 mr-2" />
+          {eventData.date} {eventData.time}
+        </Badge>
+        
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-300 bg-clip-text text-transparent">
+            GitHub Copilot
+          </span>
+          <br />
+          <span className="text-slate-100">Tokyo Meetup</span>
+        </h1>
+        
+        <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto">
+          AIペアプログラミングの最前線を学ぶ<br />
+          エンジニアのためのコミュニティイベント
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
+            <ExternalLink className="w-5 h-5 mr-2" />
+            参加申込み（無料）
+          </Button>
+          <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800 px-8 py-4 text-lg">
+            詳細を見る
+          </Button>
+        </div>
+        
+        {/* イベント基本情報 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <div className="flex items-center justify-center space-x-3 text-slate-300">
+            <MapPin className="w-5 h-5 text-blue-400" />
+            <span>{eventData.venue}</span>
+          </div>
+          <div className="flex items-center justify-center space-x-3 text-slate-300">
+            <Users className="w-5 h-5 text-purple-400" />
+            <span>定員: {eventData.capacity}</span>
+          </div>
+          <div className="flex items-center justify-center space-x-3 text-slate-300">
+            <Clock className="w-5 h-5 text-green-400" />
+            <span>参加費: {eventData.fee}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {/* スクロール誘導 */}
+    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center">
+        <div className="w-1 h-3 bg-slate-400 rounded-full mt-2 animate-pulse"></div>
+      </div>
+    </div>
+  </section>
+);
+
+// Aboutセクション
+const AboutSection = () => (
+  <section id="about" className="py-20 bg-background">
+    <div className="container mx-auto px-4">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl font-bold text-foreground mb-8">About This Event</h2>
+        <p className="text-xl text-muted-foreground leading-relaxed mb-12">
+          GitHub Copilot Tokyo Meetupは、AIペアプログラミングツールの活用法やベストプラクティスを共有し、
+          エンジニア同士が学び合うコミュニティイベントです。初心者から上級者まで、
+          誰でも参加できるフレンドリーな雰囲気で開催します。
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Card className="bg-card border-border hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <Code2 className="w-12 h-12 text-blue-600 mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold text-foreground">実践的な学び</h3>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                実際のプロジェクトでのCopilot活用事例や、生産性向上のテクニックを学べます
+              </p>
+            </CardContent>
+          </Card>
+          
+          <Card className="bg-card border-border hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <Users className="w-12 h-12 text-purple-600 mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold text-foreground">コミュニティ</h3>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                同じ技術に興味を持つエンジニアたちとのネットワーキングが楽しめます
+              </p>
+            </CardContent>
+          </Card>
+          
+          <Card className="bg-card border-border hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <Brain className="w-12 h-12 text-green-600 mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold text-foreground">最新トレンド</h3>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                AIアシスト開発の最新動向や、今後の展望について深く議論できます
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// アジェンダセクション
+const AgendaSection = () => (
+  <section id="agenda" className="py-20 bg-muted/50">
+    <div className="container mx-auto px-4">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-4xl font-bold text-foreground text-center mb-12">Agenda</h2>
+        
+        <div className="space-y-4">
+          {eventData.agenda.map((item, index) => (
+            <Card key={index} className="bg-card border-border hover:shadow-md transition-all duration-200">
+              <CardContent className="p-6">
+                <div className="flex flex-col md:flex-row md:items-center justify-between">
+                  <div className="flex-1">
+                    <div className="flex items-center space-x-4 mb-2">
+                      <Badge variant="outline" className="border-blue-600 text-blue-600 bg-blue-50">
+                        {item.time}
+                      </Badge>
+                      {item.speaker && (
+                        <span className="text-muted-foreground text-sm">by {item.speaker}</span>
+                      )}
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
+                  </div>
+                  {item.speaker === "TBD" && (
+                    <Badge variant="secondary" className="mt-2 md:mt-0 bg-amber-100 text-amber-800">
+                      スピーカー募集中
+                    </Badge>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        
+        <div className="mt-12 text-center">
+          <p className="text-muted-foreground mb-6">LTセッションでの登壇をご希望の方はお気軽にご連絡ください</p>
+          <Button variant="outline" className="border-border hover:bg-accent">
+            登壇希望の連絡をする
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// 会場情報セクション
+const VenueSection = () => (
+  <section id="venue" className="py-20 bg-background">
+    <div className="container mx-auto px-4">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-4xl font-bold text-foreground text-center mb-12">Venue & Access</h2>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <Card className="bg-card border-border">
+              <CardHeader>
+                <h3 className="text-2xl font-semibold text-foreground flex items-center">
+                  <MapPin className="w-6 h-6 mr-3 text-blue-600" />
+                  オフライン会場
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-2">サイボウズ株式会社</h4>
+                    <p className="text-muted-foreground">
+                      〒103-6028<br />
+                      東京都中央区日本橋2-7-1<br />
+                      東京日本橋タワー 27階
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-2">アクセス</h4>
+                    <p className="text-muted-foreground">
+                      • JR東京駅 八重洲北口より徒歩2分<br />
+                      • 東京メトロ東西線 大手町駅より徒歩4分<br />
+                      • 東京メトロ銀座線 日本橋駅より徒歩4分
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div>
+            <Card className="bg-card border-border">
+              <CardHeader>
+                <h3 className="text-2xl font-semibold text-foreground flex items-center">
+                  <ExternalLink className="w-6 h-6 mr-3 text-purple-600" />
+                  オンライン参加
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <p className="text-muted-foreground">
+                    遠方の方やオンラインでの参加をご希望の方向けに、
+                    ライブ配信での視聴も可能です。
+                  </p>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-2">配信プラットフォーム</h4>
+                    <p className="text-muted-foreground">
+                      YouTube Live（参加申込み後にURLをお送りします）
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-2">参加方法</h4>
+                    <p className="text-muted-foreground">
+                      チャット機能を使って質問やコメントができます
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// 参加申込みセクション
+const RegisterSection = () => (
+  <section className="py-20 bg-gradient-to-r from-blue-900 to-purple-900">
+    <div className="container mx-auto px-4">
+      <div className="max-w-2xl mx-auto text-center">
+        <h2 className="text-4xl font-bold text-white mb-8">Join Us!</h2>
+        <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+          AIペアプログラミングの未来を一緒に探求しませんか？<br />
+          皆様のご参加をお待ちしています！
+        </p>
+        
+        <Button size="lg" className="bg-white text-blue-900 hover:bg-slate-100 font-bold px-12 py-4 text-xl mb-8">
+          <ExternalLink className="w-6 h-6 mr-3" />
+          今すぐ参加申込み
+        </Button>
+        
+        <p className="text-blue-200 text-sm">
+          ※ 参加費は無料です。事前申込みが必要となります。
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
+// フッター
+const Footer = () => (
+  <footer className="bg-background border-t border-border py-12">
+    <div className="container mx-auto px-4">
+      <div className="text-center">
+        <div className="flex items-center justify-center space-x-2 mb-4">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
+            <Code2 className="w-5 h-5 text-white" />
+          </div>
+          <span className="font-semibold text-foreground">GitHub Copilot Tokyo Meetup</span>
+        </div>
+        <p className="text-muted-foreground mb-4">
+          Powered by the community, for the community
+        </p>
+        <div className="flex justify-center space-x-6">
+          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+            Discord
+          </a>
+          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+            Twitter
+          </a>
+          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+            Contact
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+);
+
+// CSS Variables for shadcn/ui theming (科学的カラー設計)
+const ThemeStyles = () => (
+  <style jsx global>{`
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 222.2 84% 4.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 222.2 84% 4.9%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 222.2 84% 4.9%;
+      --primary: 221.2 83.2% 53.3%;
+      --primary-foreground: 210 40% 98%;
+      --secondary: 210 40% 96%;
+      --secondary-foreground: 222.2 84% 4.9%;
+      --muted: 210 40% 96%;
+      --muted-foreground: 215.4 16.3% 46.9%;
+      --accent: 210 40% 96%;
+      --accent-foreground: 222.2 84% 4.9%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 214.3 31.8% 91.4%;
+      --input: 214.3 31.8% 91.4%;
+      --ring: 221.2 83.2% 53.3%;
+      --radius: 0.5rem;
+    }
+    
+    .dark {
+      --background: 222.2 84% 4.9%;
+      --foreground: 210 40% 98%;
+      --card: 222.2 84% 4.9%;
+      --card-foreground: 210 40% 98%;
+      --popover: 222.2 84% 4.9%;
+      --popover-foreground: 210 40% 98%;
+      --primary: 217.2 91.2% 59.8%;
+      --primary-foreground: 222.2 84% 4.9%;
+      --secondary: 217.2 32.6% 17.5%;
+      --secondary-foreground: 210 40% 98%;
+      --muted: 217.2 32.6% 17.5%;
+      --muted-foreground: 215 20.2% 65.1%;
+      --accent: 217.2 32.6% 17.5%;
+      --accent-foreground: 210 40% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 217.2 32.6% 17.5%;
+      --input: 217.2 32.6% 17.5%;
+      --ring: 224.3 76.3% 94.1%;
+    }
+    
+    * {
+      border-color: hsl(var(--border));
+    }
+    
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+    }
+  `}</style>
+);
+
+// メインアプリケーション
+const App = () => {
+  return (
+    <>
+      <ThemeStyles />
+      <div className="min-h-screen bg-background text-foreground">
+        <Header />
+        <HeroSection />
+        <AboutSection />
+        <AgendaSection />
+        <VenueSection />
+        <RegisterSection />
+        <Footer />
+      </div>
+    </>
+  );
+};
+
+export default App;
