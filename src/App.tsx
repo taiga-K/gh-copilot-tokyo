@@ -7,6 +7,7 @@ import { AgendaSection } from './components/sections/AgendaSection';
 import { VenueSection } from './components/sections/VenueSection';
 import { RegisterSection } from './components/sections/RegisterSection';
 import { ThemeStyles } from './styles/theme';
+import { Toaster } from './components/ui/sonner';
 
 /**
  * メインアプリケーション
@@ -23,6 +24,7 @@ const App = () => {
         <VenueSection />
         <RegisterSection />
         <Footer />
+        <Toaster />
       </div>
     </>
   );
