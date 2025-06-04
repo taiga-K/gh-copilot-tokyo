@@ -21,11 +21,8 @@ export const Footer = () => (
           <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
             Discord
           </a>
-          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-            Twitter
-          </a>
-          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-            Contact
+          <a href="https://x.com/taiga_kk322" className="text-muted-foreground hover:text-foreground transition-colors">
+            X(旧Twitter)
           </a>
         </div>
       </div>
