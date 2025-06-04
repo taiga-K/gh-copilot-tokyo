@@ -27,20 +27,8 @@ export const VenueSection = () => (
           </CardHeader>
           <CardContent>
             <p className="text-lg font-medium mb-4">{eventData.venue}</p>
-            <div className="aspect-video bg-muted rounded-md overflow-hidden">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.827519795025!2d139.7720139157606!3d35.68118698019426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889df18580a81%3A0x73055a602d3866f4!2z5p2x5Lqs5pel5pys5qmL44K_44Ov44O8IDI3Rg!5e0!3m2!1sja!2sjp!4v1579066993435!5m2!1sja!2sjp"
-                width="100%"
-                height="100%"
-                style={{ border:0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                title="会場マップ"
-              ></iframe>
-            </div>
-            <div className="mt-4 text-sm text-muted-foreground">
-              <p>〒103-6027 東京都中央区日本橋2-7-1 東京日本橋タワー 27階</p>
-              <p className="mt-2">アクセス：東京メトロ銀座線・東西線、都営地下鉄浅草線：「日本橋駅」B6出口直通</p>
+            <div className="aspect-video bg-muted rounded-md flex items-center justify-center">
+              <p className="text-muted-foreground text-center p-4">詳細が決まり次第、公開いたします。しばらくお待ちください。</p>
             </div>
           </CardContent>
         </Card>
