@@ -12,8 +12,8 @@ export const eventData = {
   agenda: [
     { time: "18:30-19:00", duration: "30分", title: "入場開始", speaker: "" },
     { time: "19:00-19:15", duration: "15分", title: "会場案内・タイムテーブル発表", speaker: "" },
-    { time: "19:15-19:25", duration: "10分", title: "Coming Soon", speaker: "" },
-    { time: "19:30-19:40", duration: "10分", title: "Coming Soon", speaker: "" },
+    { time: "19:15-19:25", duration: "10分", title: "Coming Soon", speaker: "公募LT枠" },
+    { time: "19:30-19:40", duration: "10分", title: "Coming Soon", speaker: "公募LT枠" },
     { time: "19:45-20:00", duration: "15分", title: "Coming Soon", speaker: "VS Code Meetup" },
     { time: "20:05-20:20", duration: "15分", title: "Coming Soon", speaker: "AI駆動開発勉強会" },
     { time: "20:25-20:40", duration: "15分", title: "Coming Soon", speaker: "Suzuki" },
