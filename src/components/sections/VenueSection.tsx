@@ -12,7 +12,7 @@ export const VenueSection = () => (
       <div className="text-center mb-16">
         <h2 className="text-3xl font-bold mb-4">Venue Information</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          オフラインとオンラインのハイブリッド開催です。
+          オフラインとオンラインのハイブリッド開催を予定しております。<br />
           現地参加の方もリモート参加の方も、ぜひご参加ください。
         </p>
       </div>
@@ -68,7 +68,7 @@ export const VenueSection = () => (
               </div>
               <div>
                 <p className="font-medium">オンライン参加</p>
-                <p className="text-muted-foreground">YouTube Liveで配信します。視聴リンクは申込者に当日までにお送りします。</p>
+                <p className="text-muted-foreground">YouTube Liveで配信予定です。<br />視聴リンクは申込者に当日までにお送りします。</p>
               </div>
             </div>
           </CardContent>
