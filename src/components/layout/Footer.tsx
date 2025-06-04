@@ -18,7 +18,7 @@ export const Footer = () => (
           Powered by the community, for the community
         </p>
         <div className="flex justify-center space-x-6">
-          <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+          <a href="https://discord.gg/GatQE7wGvK" className="text-muted-foreground hover:text-foreground transition-colors">
             Discord
           </a>
           <a href="https://x.com/taiga_kk322" className="text-muted-foreground hover:text-foreground transition-colors">

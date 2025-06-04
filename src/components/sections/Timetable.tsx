@@ -3,7 +3,6 @@ import { eventData } from '../../data/eventData';
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
