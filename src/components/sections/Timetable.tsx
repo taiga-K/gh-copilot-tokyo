@@ -42,6 +42,7 @@ export const Timetable = () => {
         <Button 
           asChild
           size="lg"
+          variant={null}
           className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 px-8 rounded-lg text-lg transition-colors"
         >
           <a 
