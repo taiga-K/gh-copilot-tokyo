@@ -5,6 +5,7 @@ import { HeroSection } from './components/sections/HeroSection';
 import { AboutSection } from './components/sections/AboutSection';
 import { AgendaSection } from './components/sections/AgendaSection';
 import { VenueSection } from './components/sections/VenueSection';
+import { CopilotUpdatesSection } from './components/sections/CopilotUpdatesSection';
 import { RegisterSection } from './components/sections/RegisterSection';
 import { ThemeStyles } from './styles/theme';
 import { Toaster } from './components/ui/sonner';
@@ -22,6 +23,7 @@ const App = () => {
         <AboutSection />
         <AgendaSection />
         <VenueSection />
+        <CopilotUpdatesSection />
         <RegisterSection />
         <Footer />
         <Toaster />

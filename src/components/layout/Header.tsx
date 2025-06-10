@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code2 } from 'lucide-react';
+
 /**
  * ヘッダーコンポーネント
  */
@@ -14,6 +15,13 @@ export const Header = () => {
             </div>
             <span className="font-semibold text-foreground">GitHub Copilot Meetup Tokyo</span>
           </div>
+          
+          <nav className="hidden md:flex space-x-6">
+            <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
+            <a href="#agenda" className="text-muted-foreground hover:text-foreground transition-colors">Agenda</a>
+            <a href="#venue" className="text-muted-foreground hover:text-foreground transition-colors">Venue</a>
+            <a href="#copilot-updates" className="text-muted-foreground hover:text-foreground transition-colors">Updates</a>
+          </nav>
         </div>
       </div>
     </header>
