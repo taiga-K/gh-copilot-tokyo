@@ -6,7 +6,7 @@ export const eventData = {
   date: "2025年7月11日（金）",
   time: "19:00 - 21:00",
   venue: "サイボウズ株式会社",
-  capacity: "TBD",
+  capacity: "現地100人\nオンライン500人",
   fee: "無料",
   description: "GitHub Copilotを活用したAIペアプログラミングの実践的な知見を共有するコミュニティイベントです。初心者から上級者まで、AIツールを活用したソフトウェア開発に興味のある方々が集まり、最新のテクニックや経験を交換します。",
   agenda: [

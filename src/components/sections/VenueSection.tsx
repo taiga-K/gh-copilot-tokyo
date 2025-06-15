@@ -60,7 +60,7 @@ export const VenueSection = () => (
               </div>
               <div>
                 <p className="font-medium">定員</p>
-                <p className="text-muted-foreground">{eventData.capacity}</p>
+                <p className="text-muted-foreground whitespace-pre-line">{eventData.capacity}</p>
               </div>
               <div>
                 <p className="font-medium">参加方法</p>
