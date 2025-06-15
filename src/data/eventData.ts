@@ -12,13 +12,14 @@ export const eventData = {
   agenda: [
     { time: "18:30-19:00", duration: "30分", title: "入場開始", speaker: "" },
     { time: "19:00-19:15", duration: "15分", title: "会場案内・タイムテーブル発表", speaker: "" },
-    { time: "19:15-19:25", duration: "10分", title: "Coming Soon", speaker: "公募LT枠" },
-    { time: "19:30-19:40", duration: "10分", title: "Coming Soon", speaker: "公募LT枠" },
-    { time: "19:45-20:00", duration: "15分", title: "Coming Soon", speaker: "VS Code Meetup" },
-    { time: "20:05-20:20", duration: "15分", title: "Coming Soon", speaker: "AI駆動開発勉強会" },
+    { time: "19:15-19:30", duration: "15分", title: "Coming Soon", speaker: "AI駆動開発勉強会 LINEヤフー 河本" },
+    { time: "19:35-19:45", duration: "10分", title: "LT募集中", speaker: "" },
+    { time: "19:50-20:00", duration: "10分", title: "LT募集中", speaker: "" },
+    { time: "20:05-20:20", duration: "15分", title: "VS CodeとGitHub Copilotで爆速開発！ アップデートの波に乗るおさらい会", speaker: "VS Code Meetup yamachu" },
     { time: "20:25-20:40", duration: "15分", title: "Coming Soon", speaker: "Shotaro Suzuki, FPT Japan" },
     { time: "20:45-21:00", duration: "15分", title: "Coming Soon", speaker: "サイボウズ" },
-    { time: "21:00-22:00", duration: "60分", title: "懇親会", speaker: "" }
+    { time: "21:00-21:45", duration: "45分", title: "OST", speaker: "" },
+    { time: "22:15-22:30", duration: "15分", title: "撤収作業", speaker: "" }
   ],
   speakers: []
 };
