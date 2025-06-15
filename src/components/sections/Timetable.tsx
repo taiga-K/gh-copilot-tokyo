@@ -1,6 +1,5 @@
 import React from 'react';
 import { eventData } from '../../data/eventData';
-import { Button } from '../ui/button';
 import {
   Table,
   TableBody,
@@ -37,21 +36,6 @@ export const Timetable = () => {
         <p className="text-sm text-muted-foreground text-center">
           ※ タイムテーブルは変更される可能性があります
         </p>
-      </div>
-      <div className="flex justify-center mt-6">
-        <Button 
-          asChild
-          size="lg"
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 px-8 rounded-lg text-lg transition-colors"
-        >
-          <a 
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdZd-ZgRhgc3gbew9zkS1YH1s6byjlne3S6IiNfFiDPxbQplg/viewform?usp=dialog"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            公募LTに応募する
-          </a>
-        </Button>
       </div>
     </div>
   );
