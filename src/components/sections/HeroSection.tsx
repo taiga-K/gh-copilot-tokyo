@@ -2,17 +2,13 @@ import React from 'react';
 import { Calendar, Clock } from 'lucide-react';
 import { Button } from '../ui/button';
 import { eventData } from '../../data/eventData';
-import { toast } from 'sonner';
 
 /**
  * ヒーローセクション
  */
 export const HeroSection = () => {
   const handleRegistrationClick = () => {
-    toast("現在準備中です", {
-      description: "参加申込みの詳細については、近日中にお知らせいたします。",
-      duration: 4000,
-    });
+    window.open('https://aiau.connpass.com/event/357272/', '_blank', 'noopener,noreferrer');
   };
 
   return (
