@@ -23,7 +23,7 @@ export const eventData = {
     { time: "20:50-21:05", duration: "15分", title: "", speaker: "Shotaro Suzuki, FPT Japan" },
     { time: "21:10-21:25", duration: "15分", title: "きっとあなたの知らないgithub.comで使えるGitHub Copilotの機能", speaker: "サイボウズ株式会社 加瀬 健太" },
     { time: "21:25-21:30", duration: "5分", title: "クロージング", speaker: "" },
-    { time: "21:30-21:44", duration: "15分", title: "撤収作業・閉場", speaker: "" }
+    { time: "21:30-21:45", duration: "15分", title: "撤収作業・閉場", speaker: "" }
   ],
   speakers: []
 };
