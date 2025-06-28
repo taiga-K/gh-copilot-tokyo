@@ -12,16 +12,18 @@ export const eventData = {
   agenda: [
     { time: "18:00-18:30", duration: "30分", title: "入場開始", speaker: "" },
     { time: "18:30-18:40", duration: "10分", title: "会場案内・タイムテーブル発表", speaker: "" },
-    { time: "18:45-19:00", duration: "15分", title: "Coming Soon", speaker: "AIエージェントユーザー会 taiga" },
-    { time: "19:05-19:20", duration: "15分", title: "Coming Soon", speaker: "AI駆動開発勉強会 LINEヤフー 河本" },
+    { time: "18:45-19:00", duration: "15分", title: "", speaker: "AIエージェントユーザー会 株式会社USEN-ALMEX（U-NEXT.HD） taiga" },
+    { time: "19:05-19:20", duration: "15分", title: "", speaker: "AI駆動開発勉強会 LINEヤフー 河本" },
     { time: "19:25-19:35", duration: "10分", title: "LT募集中 (1)", speaker: "" },
     { time: "19:40-19:50", duration: "10分", title: "LT募集中 (2)", speaker: "" },
     { time: "19:50-20:00", duration: "10分", title: "休憩", speaker: "" },
-    { time: "20:00-20:15", duration: "15分", title: "VS CodeとGitHub Copilotで爆速開発！ アップデートの波に乗るおさらい会", speaker: "VS Code Meetup yamachu" },
-    { time: "20:20-20:35", duration: "15分", title: "Coming Soon", speaker: "Shotaro Suzuki, FPT Japan" },
-    { time: "20:40-20:55", duration: "15分", title: "Coming Soon", speaker: "サイボウズ" },
-    { time: "21:00-21:45", duration: "45分", title: "OST", speaker: "" },
-    { time: "21:45-22:00", duration: "15分", title: "撤収作業・閉場", speaker: "" }
+    { time: "20:00-20:10", duration: "10分", title: "LT募集中 (3)", speaker: "" },
+    { time: "20:15-20:25", duration: "10分", title: "LT募集中 (4)", speaker: "" },
+    { time: "20:30-20:45", duration: "15分", title: "VS CodeとGitHub Copilotで爆速開発！ アップデートの波に乗るおさらい会", speaker: "VS Code Meetup yamachu" },
+    { time: "20:50-21:05", duration: "15分", title: "", speaker: "Shotaro Suzuki, FPT Japan" },
+    { time: "21:10-21:25", duration: "15分", title: "きっとあなたの知らないgithub.comで使えるGitHub Copilotの機能", speaker: "サイボウズ株式会社 加瀬 健太" },
+    { time: "21:25-21:30", duration: "5分", title: "クロージング", speaker: "" },
+    { time: "21:30-21:45", duration: "15分", title: "撤収作業・閉場", speaker: "" }
   ],
   speakers: []
 };
