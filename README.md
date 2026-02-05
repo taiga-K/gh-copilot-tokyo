@@ -1,10 +1,10 @@
-# GitHub Copilot Meetup Tokyo
+# GitHub Copilot Meetup Tokyo #2
 
-このプロジェクトは、「GitHub Copilot Meetup Tokyo」のウェブサイトです。
+このプロジェクトは、「GitHub Copilot Meetup Tokyo #2」のウェブサイトです。
 
 ## 概要
 
-「GitHub Copilot Meetup Tokyo」は、AIペアプログラミングツールであるGitHub Copilotの活用方法やベストプラクティスを共有し、探求するためのコミュニティイベントです。このリポジトリには、そのイベント告知や情報発信を行うためのウェブサイトのソースコードが含まれています。
+「GitHub Copilot Meetup Tokyo #2」は、AIペアプログラミングツールであるGitHub Copilotの活用方法やベストプラクティスを共有し、探求するためのコミュニティイベントです。このリポジトリには、そのイベント告知や情報発信を行うためのウェブサイトのソースコードが含まれています。
 
 ## 技術スタック
 

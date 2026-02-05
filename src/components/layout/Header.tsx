@@ -12,7 +12,7 @@ export const Header = () => {
             <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
               <Code2 className="w-5 h-5 text-white" />
             </div>
-            <span className="font-semibold text-foreground">GitHub Copilot Meetup Tokyo</span>
+            <span className="font-semibold text-foreground">GitHub Copilot Meetup Tokyo #2</span>
           </div>
         </div>
       </div>

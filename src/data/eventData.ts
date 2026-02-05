@@ -2,7 +2,7 @@
  * イベントデータ
  */
 export const eventData = {
-  title: "GitHub Copilot Meetup Tokyo",
+  title: "GitHub Copilot Meetup Tokyo #2",
   date: "2025年7月11日（金）",
   time: "19:00 - 21:00",
   venue: "サイボウズ株式会社",
